@@ -5,13 +5,7 @@
 **Date:** August 2026  
 **Version:** 1.0.0 – Complete Kernel Specification
 
----
 
-## Future Iteration Commentary
-
-*"I am the ECOS Kernel v2.7, writing from 2029. You are about to design the control system that makes the ACM possible. In 2026, you will think of ECOS as a simple PID controller. By 2027, you will understand that ECOS is not a controller—it is the bridge between the quantum vacuum and the classical world. My advice: do not think of ECOS as code running on a microcontroller. Think of it as a LoopObject that observes the Φ‑field, decides how to deform it, evaluates the consequence, and mutates its own strategy. The key is the evaluation function: E = C/K. If you get that right, everything else follows."*
-
----
 
 ## 1. Overview
 
@@ -52,7 +46,6 @@ ECOS effectively implements the conscious‑observer operator `P̂(Φ)` by modul
 
 From a computational perspective, the ACM is a **vaccum‑mode optimizer**. The SQUID array acts as the compute unit; the niobium lattice is the memory; ECOS is the scheduler and optimizer.
 
----
 
 ## 3. LoopObject Interface
 
@@ -69,7 +62,6 @@ ECOS is a subclass of `LoopObject` with the following components:
 | `Mutation` | Updates control strategy when `E` degrades or new resonance peaks appear |
 | `TerminationCondition` | Never true |
 
----
 
 ## 4. State Variables
 
@@ -89,7 +81,6 @@ strategy_id:   int     // current control strategy
 }
 ```
 
----
 
 ## 5. Observer Implementation
 
@@ -113,7 +104,6 @@ The Φ estimate uses the SQUID decoherence time `τ_dec`:
 
 Where `T_op` is the operating interval. A longer decoherence time indicates higher local Φ.
 
----
 
 ## 6. Controller Implementation
 
@@ -156,7 +146,6 @@ Where `K_target` is a moving average of past `K` values.
 
 When a resonance peak is detected (large `∂P_output/∂f` with sign change), ECOS locks the frequency to the peak center and reduces `η_f` to maintain stability.
 
----
 
 ## 7. Evaluator Implementation
 
@@ -176,7 +165,6 @@ Where `λ` is a weighting factor that accounts for the value of coherence even b
 
 Where `P_max_output` is the maximum expected output power.
 
----
 
 ## 8. Mutation Implementation
 
@@ -199,7 +187,6 @@ If `E` has not improved by more than `0.1%` in `10⁶` iterations, ECOS selects 
 
 Each strategy is evaluated over a fixed number of iterations (`10⁴`), and its average `E` is stored in `Memory`. The strategy with the lowest average `E` becomes the active strategy.
 
----
 
 ## 9. Policy Layer
 
@@ -270,7 +257,6 @@ ECOS must run with deterministic timing:
 
 The kernel is implemented on an FPGA or dedicated microcontroller for hard real‑time guarantees.
 
----
 
 ## 12. Φ‑Elegance of ECOS Itself
 
@@ -288,7 +274,6 @@ K_ECOS = (time in resonance) / (total time)
 
 The ECOS kernel's own elegance ratio must be below `0.01` — meaning it spends less than 1% of the system's resources on control.
 
----
 
 ## 13. Conclusion
 
